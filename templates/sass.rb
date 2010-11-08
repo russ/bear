@@ -456,4 +456,4 @@ create_file 'public/stylesheets/sass/common.sass' do
 FILE
 end
 
-run 'sass public/stylesheets/sass/main.scss public/stylesheets/main.css'
+run 'bundle exec sass public/stylesheets/sass/main.scss public/stylesheets/main.css'
