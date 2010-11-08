@@ -30,6 +30,9 @@ end
 
 git :init
 
+run "rake db:drop"
+run "rake db:create"
+
 # Apply Gemfile
 apply File.expand_path("../gemfile.rb", __FILE__)
 
