@@ -2,12 +2,10 @@ run "rails generate rspec:install"
 run "rails generate cucumber:install --capybara --rspec"
 run "rails generate pickle --email"
 
-inject_into_file "config/application.rb", :after => "# Configure the default encoding used in templates for Ruby 1.9.\n" do
+inject_into_file "config/application.rb", :after => "g.template_engine :haml" do
 <<-RUBY
-    config.generators do |g|
       g.test_framework :rspec
       g.fixture_replacement :fabrication, :dir => "spec/fabricators"
-    end
 RUBY
 end
 
