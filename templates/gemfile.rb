@@ -7,6 +7,7 @@ gem "autotest", :group => [ :test ]
 gem "autotest-rails", :group => [ :test ]
 gem "bistro_car"
 gem "capybara", "0.4.0", :group => [ :cucumber ]
+gem "carrierwave", "0.5.0"
 gem "cover_me", ">= 1.0.0.pre2", :require => false, :group => [ :development, :test, :cucumber ]
 gem "css_sprite", "1.4.10"
 gem "cucumber", :group => [ :cucumber ]
