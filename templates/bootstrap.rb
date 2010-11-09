@@ -65,6 +65,9 @@ apply File.expand_path("../devise.rb", __FILE__) if ENV["BEAR_AUTH"]
 # Apply admin
 apply File.expand_path("../admin.rb", __FILE__) if ENV["BEAR_ADMIN"]
 
+# Apply cancan 
+apply File.expand_path("../cancan.rb", __FILE__) if ENV['BEAR_ROLES']
+
 # Apply db create and migrations
 apply File.expand_path("../db.rb", __FILE__)
 

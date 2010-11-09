@@ -6,7 +6,7 @@ javascripts:
   common:
     - public/javascripts/jquery.js
     - public/javascripts/rails.js
-    - public/javascripts/core.js
+    - public/javascripts/application.js
 
 stylesheets:
   main:

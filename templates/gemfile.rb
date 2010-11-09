@@ -6,6 +6,7 @@ gem "rails", "~> 3.0.0"
 gem "autotest", :group => [ :test ]
 gem "autotest-rails", :group => [ :test ]
 gem "bistro_car"
+gem "cancan" if ENV["BEAR_ROLES"]
 gem "capybara", "0.4.0", :group => [ :cucumber ]
 gem "carrierwave", "0.5.0"
 gem "cover_me", ">= 1.0.0.rc4", :group => [ :test ]
