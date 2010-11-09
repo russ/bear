@@ -21,6 +21,8 @@ append_file ".gitignore" do
   ".bundle"
   "capybara-*.html"
   "config/database.yml"
+  "coverage.data"
+  "coverage/**/*"
   "log/*.log"
   "public/stylesheets/compiled/"
   "public/system/**/**/**/*"
