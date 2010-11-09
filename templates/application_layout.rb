@@ -49,10 +49,10 @@ create_file "app/views/layouts/application.html.haml" do
             #flash_messages= raw(flash_messages)
           .clear
 
-        #content
-          .container_2
-            = yield
-            .clear
+      #content
+        .container_12
+          = yield
+          .clear
 
     .container_12
       .grid_12

@@ -1,5 +1,6 @@
+run 'rm spec/fabricators/users_fabricator.rb'
 
-create_file 'spec/fabricators/user.rb' do
+create_file 'spec/fabricators/users_fabricator.rb' do
 <<-'FILE'
 Fabricator(:user) do
   name { Fabricate.sequence(:name) { |i| "Bear #{i}" } }
@@ -16,7 +17,7 @@ Fabricator(:admin, :from => :user) do
 end
 
 Fabricator(:member, :from => :user) do
-  email "member@quickleft.com"
+  email "member@yoursite.com"
   password "password"
 end
 FILE
@@ -34,7 +35,7 @@ end
 Given /^a logged in admin user$/ do
   Fabricate(:admin)
   visit(new_user_session_path)
-  fill_in("user[email]", :with => "quickleft@quickleft.com")
+  fill_in("user[email]", :with => "admin@yoursite.com")
   fill_in("user[password]", :with => "password")
   click_button("Sign in")
 end
@@ -42,7 +43,7 @@ end
 Given /^a logged in member user$/ do
   Fabricate(:member)
   visit(new_user_session_path)
-  fill_in("user[email]", :with => "member@quickleft.com")
+  fill_in("user[email]", :with => "member@yoursite.com")
   fill_in("user[password]", :with => "password")
   click_button("Sign in")
 end
@@ -78,13 +79,13 @@ Feature: Forgot password
   Scenario: Follow forget your password link
     Given the following user records
     | email                |
-    | forgot@quickleft.com |
+    | forgot@yoursite.com |
     When I am on the login page
     And I follow "Forgot your password?"
-    And I fill in "Email" with "forgot@quickleft.com"
+    And I fill in "Email" with "forgot@yoursite.com"
     And I press "Send me reset password instructions"
     Then I should see "You will receive an email with instructions about how to reset your password in a few minutes."
-    And 1 emails should be delivered to forgot@quickleft.com
+    And 1 emails should be delivered to forgot@yoursite.com
     When I click the first link in the email
     And I fill in "Password" with "myNewP@ssword"
     And I fill in "Password confirmation" with "myNewP@ssword"
@@ -103,13 +104,13 @@ Feature: Resend Verification
   Scenario: Follow resend verification email
     Given the following user records
     | email                | confirmed_at |
-    | resend@quickleft.com | nil          |
+    | resend@yoursite.com | nil          |
     When I am on the login page
     And I follow "Didn't receive confirmation instructions?"
-    And I fill in "Email" with "resend@quickleft.com"
+    And I fill in "Email" with "resend@yoursite.com"
     And I press "Resend confirmation instructions"
     Then I should see "You will receive an email with instructions about how to confirm your account in a few minutes."
-    And 2 emails should be delivered to resend@quickleft.com
+    And 2 emails should be delivered to resend@yoursite.com
     When I click the first link in the email
     Then I should see "Your account was successfully confirmed. You are now signed in."
 FILE

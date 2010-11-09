@@ -70,7 +70,7 @@ end
 create_file 'app/views/admin/users/_form.html.haml' do
 <<-'FILE'
 = semantic_form_for([ :admin, @user ])  do |f|
-  = f.semnatic_errors
+  = f.semantic_errors
   = f.inputs(:name, :email, :password, :password_confirmation)
   = f.buttons
 FILE

@@ -15,6 +15,25 @@ $VERBOSE = nil
 RUBY
 end
 
+inject_into_file "spec/spec_helper.rb", :before => "# This file is copied to spec/ when you run 'rails generate rspec:install'" do
+<<-RUBY
+require 'cover_me'
+RUBY
+end
+
+inject_into_file "spec/spec_helper.rb", :after => "require 'rspec/rails'\n" do
+<<-RUBY
+$VERBOSE = nil
+require 'remarkable/active_model'
+require 'fabrication'
+require 'carrierwave/test/matchers'
+RUBY
+end
+
+gsub_file "spec/spec_helper.rb", /# config.mock_with :mocha/, 'config.mock_with :mocha'
+gsub_file "spec/spec_helper.rb", /config.mock_with :rspec/, '#config.mock_with :rspec'
+gsub_file "spec/spec_helper.rb", /config.fixture_path = \"\#{::Rails.root\}\/spec\/fixtures\"/, ""
+
 gsub_file "features/support/env.rb",/require 'cucumber\/rails\/capybara_javascript_emulation'/,'#require \'cucumber/rails/capybara_javascript_emulation\''
 
 run "mkdir spec/fabricators"
@@ -28,11 +47,11 @@ end
 FILE
 end
 
-create_file "features/step_definitions/factory_steps.rb" do
+create_file "features/step_definitions/fabrication_steps.rb" do
 <<-'FILE'
-Given /^the following (.+) records?$/ do |factory, table|
+Given /^the following (.+) records?$/ do |fabrication, table|
   table.hashes.each do |hash|
-    Fabricate(factory, hash)
+    Fabricate(fabrication.to_sym, hash)
   end
 end
 FILE

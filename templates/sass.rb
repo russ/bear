@@ -2,8 +2,8 @@ run "mkdir public/stylesheets/sass"
 
 create_file "public/stylesheets/sass/colors.sass" do
 <<-FILE
-  $black = rgba(0, 0, 0, 1)
-  $white = rgba(255, 255, 255, 1)
+$black: rgba(0, 0, 0, 1)
+$white: rgba(255, 255, 255, 1)
 FILE
 end
 
@@ -87,7 +87,7 @@ table
 FILE
 end
 
-create_file "public/stylesheets/grid.sass" do
+create_file "public/stylesheets/grid.css" do
 <<-FILE
 /*
 	Variable Grid System.
@@ -453,6 +453,11 @@ create_file 'public/stylesheets/sass/common.sass' do
 
 .text-right
   text-align: right !important
+FILE
+end
+
+create_file 'public/stylesheets/sass/admin.sass' do
+<<-FILE
 FILE
 end
 

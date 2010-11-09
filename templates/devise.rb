@@ -71,7 +71,7 @@ end
 generate(:migration, "AddNameToUsers name:string")
 generate(:migration, "AddDeletedAtToUsers deleted_at:datetime")
 
-inject_into_file 'app/views/layouts/application.html.haml', :after => "%li= link_to(\"Home\", root_path)" do
+inject_into_file 'app/views/layouts/application.html.haml', :after => "%li= link_to(\"Home\", root_path)\n" do
 <<-'FILE'
             - if user_signed_in?
               %li
