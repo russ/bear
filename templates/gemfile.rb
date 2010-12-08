@@ -15,7 +15,7 @@ gem "cucumber", :group => [ :cucumber ]
 gem "cucumber-rails", :group => [ :cucumber ]
 gem "database_cleaner", :group => [ :test, :cucumber ]
 gem "devise", ">= 1.1.3" if ENV["BEAR_AUTH"]
-gem "fabrication", :group => [ :test, :cucumber ]
+gem "fabrication", :group => [ :development, :test, :cucumber ]
 gem "faker", :group => [ :test ]
 gem "formtastic", "1.1.0"
 gem "haml", ">= 3.0.21"
