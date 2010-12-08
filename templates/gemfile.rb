@@ -19,6 +19,7 @@ gem "fabrication", :group => [ :development, :test, :cucumber ]
 gem "faker", :group => [ :test ]
 gem "formtastic", "1.1.0"
 gem "haml", ">= 3.0.21"
+gem "haml-rails"
 gem "hoptoad_notifier"
 gem "hpricot", :group => [ :development ]
 gem "jammit"
